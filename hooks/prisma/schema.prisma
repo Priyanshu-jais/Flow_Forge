@@ -15,19 +15,24 @@ datasource db {
 }
 
 model User {
-  id        Int       @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   name      String
   email     String   
   password  String
 }
 
 model Zap {
-  id     String @default(uuid()) 
+  id     String @id @default(uuid()) 
 }
 
 model Trigger{
-  id String @default(uuid())
-  ZapId String
+  id String @id @default(uuid())
+  zapId String
+  type AvailableTriggers @relation(fields: [zapId], references: [id])
 }
 
-model AvailableTri
+model AvailableTriggers{
+  id String @id @default(uuid())
+  name String
+  triggers Trigger[]
+}
