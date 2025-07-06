@@ -1,145 +1,104 @@
-# AutoFlow
-[![GitHub release](https://img.shields.io/github/v/release/Somnath-Chattaraj/Zapier)](https://github.com/Somnath-Chattaraj/Zapier/releases)
-[![GitHub issues](https://img.shields.io/github/issues/Somnath-Chattaraj/Zapier)](https://github.com/Somnath-Chattaraj/Zapier/issues)
-[![GitHub forks](https://img.shields.io/github/forks/Somnath-Chattaraj/Zapier)](https://github.com/Somnath-Chattaraj/Zapier/network)
-[![GitHub stars](https://img.shields.io/github/stars/Somnath-Chattaraj/Zapier)](https://github.com/Somnath-Chattaraj/Zapier/stargazers)
-[![License: Royalty License](https://img.shields.io/badge/License-Royalty-blue)](https://github.com/Somnath-Chattaraj/Zapier/blob/master/LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-### **Overview**
+# Flow_Forge
 
-This is a scalable and modular workflow designed to handle webhooks, email notifications, and Solana blockchain integration. Built with modern technologies, the platform ensures robust performance, efficient task automation, and seamless integration capabilities.
+**Flow_Forge** is a modular workflow automation platform that connects webhooks, Solana blockchain events, and microservices — enabling real-time task execution across multiple systems.
 
-### **Features**
-
-- **Webhooks**: Trigger events and actions programmatically.
-- **Email Notifications**: Automate sending and receiving emails.
-- **Solana Integration**: Utilize Solana blockchain for decentralized operations.
-- **Scalable Architecture**: Powered by Kafka for message streaming.
-- **Full-Stack Solution**: Built using Next.js, Node.js, and Express for both frontend and backend functionalities.
-- **Database Management**: Prisma ORM integrated with PostgreSQL for efficient data handling.
-
----
-### **Tech Stack**
-
-- **Frontend** : Next.js
-- **Backend** : Node.js, Express
-- **Database** : PostgresSQL with Prisma
-- **Messaging** : Kafka
-- **Blockchain** : Solana
+This project explores building a **Zapier-like** architecture with production-grade practices such as event streaming, service isolation, and blockchain integration.
 
 ---
 
-### **System Design**
-![System Design](frontend/public/image.png)
+## Key Features
+
+- **Custom Workflow Execution**  
+  Trigger actions like sending emails, hitting APIs, or recording blockchain events.
+
+- **Modular Architecture**  
+  Each service is independently deployable and communicates via Kafka topics.
+
+- **Solana Blockchain Integration**  
+  Automate flows based on on-chain activity using Web3.js.
+
+- **Scalable Messaging Layer**  
+  Apache Kafka enables high-throughput, asynchronous task distribution.
+
+- **Type-safe Schema & Data Access**  
+  All services use PostgreSQL with Prisma for consistent schema enforcement.
 
 ---
 
-## **Getting Started**
+## Technical Architecture
 
-### Prerequisites
+| Component        | Technology                               |
+|------------------|-------------------------------------------|
+| **Frontend**     | Next.js + TypeScript + TailwindCSS        |
+| **Backend**      | Node.js + Express (hooks, processor, worker) |
+| **Database**     | PostgreSQL + Prisma ORM                   |
+| **Messaging**    | Apache Kafka                              |
+| **Blockchain**   | Solana + Web3.js                          |
 
-Ensure the following tools are installed on your system:
+---
 
- - Docker (for containerized environment)
- - Node.js (v18 or later)
- - Kafka (for message brokering)
+## System Breakdown
 
-### Clone Respositry
-```
-git clone https://github.com/Somnath-Chattaraj/Zapier.git
-cd Zapier
-```
+- **Frontend (Dashboard)**  
+  Interface to define workflows and manage pipeline execution.
 
-### Set Up Environment Variables
+- **Hooks Service**  
+  Listens for incoming webhook events and queues them via Kafka.
 
-Create a `.env` file in every location where a `.env.example` file is present. Copy the contents of the corresponding `.env.example` file and update the placeholder values with your actual configuration.
+- **Processor Service**  
+  Decides which workflows to execute based on the event and rules.
 
-### Start the project
-1. **Install Dependencies in every folder**:
-```
-cd frontend
-npm i
-cd ../primary_backend
-npm i
-cd ../hooks
-npm i
-cd ../worker
-npm i
-cd ../processor
-npm i
-```
-2. **Start Kafka**:
-If using docker, start kafka with
-```
-docker run -p 9092:9092 -d apache/kafka:3.9.0
-```  
-Then, access the Kafka container:
-```
-docker exec -it <container_id> /bin/bash
-```
-Create a topic named zap-events:
+- **Worker Service**  
+  Executes actions like sending emails, updating databases, or interacting with Solana.
 
-```
-bin/kafka-topics.sh --create --topic zap-events --bootstrap-server localhost:9092
-```
+- **Solana Handler**  
+  Uses Solana RPC/Web3 to fetch on-chain data and validate actions.
 
-3. **Run Database Migrations**:
-    Go to every folder and migrate the database
-```
-cd primary_backend
-npx prisma migrate dev
-cd ../hooks
-npx prisma migrate dev
-cd ../worker
-npx prisma migrate dev
-cd ../processor
-npx prisma migrate dev
-```
+---
 
-4. **Run the Application** 
-<br/>
-Run the frontend 
-```
-cd frontend
-npm run dev
-``` 
+## Design Goals
 
-Run the primary backend
+- **Asynchronous by design** using Kafka queues  
+- **Service modularity** for scalability and team collaboration  
+- **Type-safe across stack** using Prisma + TypeScript  
+- **Secure trigger mechanisms** via token-protected webhooks  
+- **Decentralized triggers** through Solana integration
 
-```
-cd primary_backend
-tsc -b
-node dist/index.js
-```
+---
 
-Run the processor
+## Visual Overview
 
-```
-cd processor
-tsc -b
-node dist/index.js
-```
+![Flow_Forge System Design](/frontend/public/flow_forge.jpg)
 
-Run the worker
+*(Architecture image showing event flow from webhooks to Kafka → Processor → Worker → Blockchain/Email/Slack)*
 
-```
-cd worker
-tsc -b
-node dist/index.js
-```
+---
 
-Run the hooks
+## Why I Built This
 
-```
-cd hooks
-tsc -b
-node dist/index.js
-```
+I wanted to learn how real-time automation tools like Zapier or n8n work under the hood.  
+This project gave me hands-on experience with:
 
-5. **Access the application at `http://localhost:3000`**.
+- Building **Kafka-powered** asynchronous systems  
+- Handling **cross-service communication and scaling**  
+- Using **Web3 and Solana** for real-world triggers  
+- Working with **modular backend services** using Node.js + Prisma
 
-## Usage
-- **Webhooks**: Configure webhook URLs and trigger actions through the dashboard.
-- **Emails**: Set up email templates and automate notifications.
-- **Blockchain**: Utilize Solana integration for blockchain-specific triggers and workflows.
+---
+
+
+## Related Skills
+
+- Distributed Systems  
+- Message Queues (Kafka)  
+- Backend API Design  
+- Solana RPC + Web3  
+- Event-driven Microservices  
+- Database Design with Prisma + PostgreSQL
+
+---
+
+## Let's Connect
+
+If you're curious about how this works or want to collaborate on similar ideas, feel free to reach out!
+
