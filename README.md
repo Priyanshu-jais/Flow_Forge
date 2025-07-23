@@ -70,7 +70,7 @@ This project explores building a **Zapier-like** architecture with production-gr
 
 ![Flow_Forge System Design](/frontend/public/flowforge.png)
 
-*(Architecture image showing event flow from webhooks to Kafka → Processor → Worker → Blockchain/Email/Slack)*
+*(Architecture image showing event flow from webhooks to DB → Outbox → Worker → Kafka → Processor → (Email / Slack / Blockchain).)*
 
 ---
 
