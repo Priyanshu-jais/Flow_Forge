@@ -27,13 +27,13 @@ This project explores building a **Zapier-like** architecture with production-gr
 
 ## Technical Architecture
 
-| Component        | Technology                               |
-|------------------|-------------------------------------------|
-| **Frontend**     | Next.js + TypeScript + TailwindCSS        |
-| **Backend**      | Node.js + Express (hooks, processor, worker) |
-| **Database**     | PostgreSQL + Prisma ORM                   |
-| **Messaging**    | Apache Kafka                              |
-| **Blockchain**   | Solana + Web3.js                          |
+| Component      | Technology                                   |
+| -------------- | -------------------------------------------- |
+| **Frontend**   | Next.js + TypeScript + TailwindCSS           |
+| **Backend**    | Node.js + Express (hooks, processor, worker) |
+| **Database**   | PostgreSQL + Prisma ORM                      |
+| **Messaging**  | Apache Kafka                                 |
+| **Blockchain** | Solana + Web3.js                             |
 
 ---
 
@@ -58,10 +58,10 @@ This project explores building a **Zapier-like** architecture with production-gr
 
 ## Design Goals
 
-- **Asynchronous by design** using Kafka queues  
-- **Service modularity** for scalability and team collaboration  
-- **Type-safe across stack** using Prisma + TypeScript  
-- **Secure trigger mechanisms** via token-protected webhooks  
+- **Asynchronous by design** using Kafka queues
+- **Service modularity** for scalability and team collaboration
+- **Type-safe across stack** using Prisma + TypeScript
+- **Secure trigger mechanisms** via token-protected webhooks
 - **Decentralized triggers** through Solana integration
 
 ---
@@ -70,7 +70,7 @@ This project explores building a **Zapier-like** architecture with production-gr
 
 ![Flow_Forge System Design](/frontend/public/flowforge.png)
 
-*(Architecture image showing event flow from webhooks to DB → Outbox → Worker → Kafka → Processor → (Email / Slack / Blockchain).)*
+_(Architecture event flow from webhooks to DB → Outbox → Worker → Kafka → Processor → (Email / Slack / Blockchain).)_
 
 ---
 
@@ -79,21 +79,20 @@ This project explores building a **Zapier-like** architecture with production-gr
 I wanted to learn how real-time automation tools like Zapier or n8n work under the hood.  
 This project gave me hands-on experience with:
 
-- Building **Kafka-powered** asynchronous systems  
-- Handling **cross-service communication and scaling**  
-- Using **Web3 and Solana** for real-world triggers  
+- Building **Kafka-powered** asynchronous systems
+- Handling **cross-service communication and scaling**
+- Using **Web3 and Solana** for real-world triggers
 - Working with **modular backend services** using Node.js + Prisma
 
 ---
 
-
 ## Related Skills
 
-- Distributed Systems  
-- Message Queues (Kafka)  
-- Backend API Design  
-- Solana RPC + Web3  
-- Event-driven Microservices  
+- Distributed Systems
+- Message Queues (Kafka)
+- Backend API Design
+- Solana RPC + Web3
+- Event-driven Microservices
 - Database Design with Prisma + PostgreSQL
 
 ---
@@ -101,4 +100,3 @@ This project gave me hands-on experience with:
 ## Let's Connect
 
 If you're curious about how this works or want to collaborate on similar ideas, feel free to reach out!
-
