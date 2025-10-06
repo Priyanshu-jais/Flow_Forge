@@ -14,9 +14,6 @@ This project explores building a **Zapier-like** architecture with production-gr
 - **Modular Architecture**  
   Each service is independently deployable and communicates via Kafka topics.
 
-- **Solana Blockchain Integration**  
-  Automate flows based on on-chain activity using Web3.js.
-
 - **Scalable Messaging Layer**  
   Apache Kafka enables high-throughput, asynchronous task distribution.
 
@@ -33,7 +30,6 @@ This project explores building a **Zapier-like** architecture with production-gr
 | **Backend**    | Node.js + Express (hooks, processor, worker) |
 | **Database**   | PostgreSQL + Prisma ORM                      |
 | **Messaging**  | Apache Kafka                                 |
-| **Blockchain** | Solana + Web3.js                             |
 
 ---
 
@@ -49,10 +45,7 @@ This project explores building a **Zapier-like** architecture with production-gr
   Decides which workflows to execute based on the event and rules.
 
 - **Worker Service**  
-  Executes actions like sending emails, updating databases, or interacting with Solana.
-
-- **Solana Handler**  
-  Uses Solana RPC/Web3 to fetch on-chain data and validate actions.
+  Executes actions like sending emails, updating databases.
 
 ---
 
@@ -70,7 +63,7 @@ This project explores building a **Zapier-like** architecture with production-gr
 
 ![Flow_Forge System Design](/frontend/public/flow.png)
 
-_(Architecture event flow from webhooks to DB → Outbox → Worker → Kafka → Processor → (Email / Slack / Blockchain).)_
+_(Architecture event flow from webhooks to DB → Outbox → Worker → Kafka → Processor → (Email / Slack /Google Sheets).)_
 
 ---
 
@@ -81,7 +74,6 @@ This project gave me hands-on experience with:
 
 - Building **Kafka-powered** asynchronous systems
 - Handling **cross-service communication and scaling**
-- Using **Web3 and Solana** for real-world triggers
 - Working with **modular backend services** using Node.js + Prisma
 
 ---
@@ -91,7 +83,6 @@ This project gave me hands-on experience with:
 - Distributed Systems
 - Message Queues (Kafka)
 - Backend API Design
-- Solana RPC + Web3
 - Event-driven Microservices
 - Database Design with Prisma + PostgreSQL
 
