@@ -1,6 +1,6 @@
 # Flow_Forge
 
-**Flow_Forge** is a modular workflow automation platform that connects webhooks, Solana blockchain events, and microservices — enabling real-time task execution across multiple systems.
+**Flow_Forge** is a modular workflow automation platform that connects webhooks, and microservices — enabling real-time task execution across multiple systems.
 
 This project explores building a **Zapier-like** architecture with production-grade practices such as event streaming, service isolation, and blockchain integration.
 
