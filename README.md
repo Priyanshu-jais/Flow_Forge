@@ -2,7 +2,7 @@
 
 **Flow_Forge** is a modular workflow automation platform that connects webhooks, Solana blockchain events, and microservices — enabling real-time task execution across multiple systems.
 
-This project explores building a **Zapier-like** architecture with production-grade practices such as event streaming, service isolation, and blockchain integration.
+This project explores building a **Zapier-like** architecture with production-grade practices such as event streaming and service isolation.
 
 ---
 
@@ -33,7 +33,6 @@ This project explores building a **Zapier-like** architecture with production-gr
 | **Backend**    | Node.js + Express (hooks, processor, worker) |
 | **Database**   | PostgreSQL + Prisma ORM                      |
 | **Messaging**  | Apache Kafka                                 |
-| **Blockchain** | Solana + Web3.js                             |
 
 ---
 
@@ -51,8 +50,6 @@ This project explores building a **Zapier-like** architecture with production-gr
 - **Worker Service**  
   Executes actions like sending emails, updating databases, or interacting with Solana.
 
-- **Solana Handler**  
-  Uses Solana RPC/Web3 to fetch on-chain data and validate actions.
 
 ---
 
@@ -62,7 +59,7 @@ This project explores building a **Zapier-like** architecture with production-gr
 - **Service modularity** for scalability and team collaboration
 - **Type-safe across stack** using Prisma + TypeScript
 - **Secure trigger mechanisms** via token-protected webhooks
-- **Decentralized triggers** through Solana integration
+
 
 ---
 
@@ -81,7 +78,6 @@ This project gave me hands-on experience with:
 
 - Building **Kafka-powered** asynchronous systems
 - Handling **cross-service communication and scaling**
-- Using **Web3 and Solana** for real-world triggers
 - Working with **modular backend services** using Node.js + Prisma
 
 ---
@@ -91,7 +87,6 @@ This project gave me hands-on experience with:
 - Distributed Systems
 - Message Queues (Kafka)
 - Backend API Design
-- Solana RPC + Web3
 - Event-driven Microservices
 - Database Design with Prisma + PostgreSQL
 
