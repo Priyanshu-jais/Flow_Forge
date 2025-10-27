@@ -45,7 +45,7 @@ This project explores building a **Zapier-like** architecture with production-gr
   Decides which workflows to execute based on the event and rules.
 
 - **Worker Service**  
-  Executes actions like sending emails, updating databases, or interacting with Solana.
+  Executes actions like sending emails, updating databases.
 
 
 ---
