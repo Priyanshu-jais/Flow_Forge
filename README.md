@@ -1,6 +1,6 @@
 # Flow_Forge
 
-**Flow_Forge** is a modular workflow automation platform that connects webhooks, Solana blockchain events, and microservices — enabling real-time task execution across multiple systems.
+**Flow_Forge** is a modular workflow automation platform that connects webhooks and microservices — enabling real-time task execution across multiple systems.
 
 This project explores building a **Zapier-like** architecture with production-grade practices such as event streaming and service isolation.
 
@@ -9,13 +9,10 @@ This project explores building a **Zapier-like** architecture with production-gr
 ## Key Features
 
 - **Custom Workflow Execution**  
-  Trigger actions like sending emails, hitting APIs, or recording blockchain events.
+  Trigger actions like sending emails, hitting APIs, or recording events.
 
 - **Modular Architecture**  
   Each service is independently deployable and communicates via Kafka topics.
-
-- **Solana Blockchain Integration**  
-  Automate flows based on on-chain activity using Web3.js.
 
 - **Scalable Messaging Layer**  
   Apache Kafka enables high-throughput, asynchronous task distribution.
@@ -67,7 +64,7 @@ This project explores building a **Zapier-like** architecture with production-gr
 
 ![Flow_Forge System Design](/frontend/public/flow.png)
 
-_(Architecture event flow from webhooks to DB → Outbox → Worker → Kafka → Processor → (Email / Slack / Blockchain).)_
+_(Architecture event flow from webhooks to DB → Outbox → Worker → Kafka → Processor → (Email / Slack / Spreadsheet).)_
 
 ---
 
